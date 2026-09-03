@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Portal Revisões</title>
+
+<style>
+
+body{
+    font-family:Segoe UI;
+    background:#f4f5f7;
+}
+
+.container{
+    width:500px;
+    margin:50px auto;
+    background:white;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 2px 10px rgba(0,0,0,.1);
+}
+
+h1{
+    color:#003366;
+}
+
+label{
+    display:block;
+    margin-top:20px;
+    margin-bottom:8px;
+    font-weight:bold;
+}
+
+select{
+    width:100%;
+    padding:12px;
+}
+
+.valor{
+    margin-top:25px;
+    font-size:24px;
+    color:#008000;
+    font-weight:bold;
+}
+
+button{
+    margin-top:20px;
+    width:100%;
+    padding:12px;
+    background:#0063B1;
+    color:white;
+    border:none;
+    border-radius:8px;
+}
+
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<h1>Portal de Revisões</h1>
+
+<label>Tipo de Revisão</label>
+
+<select id="revisao">
+    <option>1ª para 2ª Revisão</option>
+    <option>2ª para 3ª Revisão</option>
+    <option>3ª para 4ª Revisão</option>
+    <option>4ª para 5ª Revisão</option>
+</select>
+
+<label>Modelo</label>
+
+<select id="modelo" onchange="atualizarPreco()">
+    <option value="">Selecione</option>
+    <option value="1250">Peugeot 208</option>
+    <option value="1550">Peugeot 2008</option>
+    <option value="1450">Citroën C3</option>
+    <option value="2100">Fiat Toro</option>
+</select>
+
+<div class="valor" id="preco">
+R$ 0,00
+</div>
+
+<button>
+Solicitar
+</button>
+
+</div>
+
+<script>
+
+function atualizarPreco() {
+
+let valor =
+document.getElementById("modelo").value;
+
+if(valor){
+
+document.getElementById("preco").innerHTML =
+Number(valor).toLocaleString(
+'pt-BR',
+{
+style:'currency',
+currency:'BRL'
+});
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
